@@ -1,26 +1,57 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+/* styles/globals.css หรือ app/globals.css */
+/*เรียกใช้ <hr className="hr-thick" />*/
+.hr-short {
+  border: none;
+  height: 1px;
+  width: 100px;
+  background-color: #ccc;
+  margin: 2rem auto;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.hr-medium {
+  border: none;
+  height: 1px;
+  width: 500px;
+  background-color: #ccc;
+  margin: 1.5rem auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.hr-thick {
+  border: none;
+  height: 2px;
+  width: 60px;
+  background-color: #ccc;
+  margin: 1rem auto;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ข้อความภายใน Line*/
+
+.hr-with-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 600px; /* 👈 ปรับความยาวที่นี่ */
+  margin: 2rem auto;
+  color: #555;
+  font-weight: 500;
+}
+
+.hr-with-text::before,
+.hr-with-text::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.hr-with-text:not(:empty)::before {
+  margin-right: 0.75em;
+}
+
+.hr-with-text:not(:empty)::after {
+  margin-left: 0.75em;
 }
